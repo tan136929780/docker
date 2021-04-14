@@ -1,0 +1,2 @@
+#!/bin/bash
+docker exec -it docker-php /bin/bash -c "/usr/local/bin/php /var/www/html/lenovo-mbg/yii $*"
