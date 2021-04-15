@@ -8,7 +8,7 @@ services:
     ports:
       - "2181:2181"
     volumes:
-      - ./conf/zoo1.cfg
+#      - ./conf/zoo1.cfg:/conf/zoo.cfg
       - ./data/zoo1:/data
       - ./data/zoo1/datalog:/datalog
     networks:
@@ -25,7 +25,7 @@ services:
     ports:
       - "2182:2181"
     volumes:
-      - ./conf/zoo2.cfg
+#      - ./conf/zoo2.cfg:/conf/zoo.cfg
       - ./data/zoo2:/data
       - ./data/zoo2/datalog:/datalog
     networks:
@@ -42,7 +42,7 @@ services:
     ports:
       - "2183:2181"
     volumes:
-      - ./conf/zoo3.cfg
+#      - ./conf/zoo3.cfg:/conf/zoo.cfg
       - ./data/zoo3:/data
       - ./data/zoo3/datalog:/datalog
     networks:
