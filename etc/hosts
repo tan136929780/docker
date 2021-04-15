@@ -3,10 +3,7 @@
 127.0.1.1	tan
 127.0.0.1	www.lenovo-mbg.com
 127.0.0.1	www.lenovo-mbg-api.com
-10.251.34.15	s3-ap-southeast-1.amazonaws.com
-52.219.128.210	s3-ap-southeast-1.amazonaws.com
-103.30.234.122	s3.eu-central-1.amazonaws.com
-10.251.65.149	s3.amazonaws.com
+
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
