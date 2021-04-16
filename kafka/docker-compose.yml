@@ -13,7 +13,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9092
       KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
       KAFKA_ADVERTISED_PORT: 9092
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2182,zookeeper3:2183
       JMX_PORT: 9999
     volumes:
       - ./data/kafka1/logs:/kafka
@@ -37,7 +37,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9093
       KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
       KAFKA_ADVERTISED_PORT: 9093
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2182,zookeeper3:2183
       JMX_PORT: 9988
     volumes:
       - ./data/kafka2/logs:/kafka
@@ -61,7 +61,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9094
       KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
       KAFKA_ADVERTISED_PORT: 9094
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2182,zookeeper3:2183
       JMX_PORT: 9977
     volumes:
       - ./data/kafka3/logs:/kafka
@@ -88,7 +88,7 @@ services:
       - zookeeper2
       - zookeeper3
     environment:
-      ZK_HOSTS: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      ZK_HOSTS: zookeeper1:2181,zookeeper2:2182,zookeeper3:2183
       KAFKA_BROKERS: kafka1:9092,kafka2:9093,kafka3:9094
       APPLICATION_SECRET: letmein
       KM_ARGS: -Djava.net.preferIPv4Stack=true
