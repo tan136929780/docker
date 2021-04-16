@@ -78,7 +78,7 @@ services:
     #    restart: always
     container_name: kafa-manager
     ports:
-      - "9002:9002"
+      - "9002:9000"
     links:            # 连接本compose文件创建的container
       - kafka1
       - kafka2
