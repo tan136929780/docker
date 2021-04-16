@@ -63,8 +63,8 @@ services:
       extnetwork:
         ipv4_address: 172.18.0.5
     links:
-      - mysql:mysql
-      - redis:redis
+      - mysql
+      - redis
 
 #network
 networks:
