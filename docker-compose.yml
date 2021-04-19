@@ -13,7 +13,8 @@ services:
       - ./mysql/mysql-files:/var/lib/mysql-files/
       - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
     environment:
-      - MYSQL_ROOT_PASSWORD=123456
+      TZ: "Asia/Shanghai"
+      MYSQL_ROOT_PASSWORD: 123456
     networks:
       lnmp:
         ipv4_address: 172.18.0.2
@@ -24,6 +25,8 @@ services:
     image: redis:5.0
     ports:
       - "6379:6379"
+    environment:
+      TZ: "Asia/Shanghai"
     networks:
       lnmp:
         ipv4_address: 172.18.0.3
@@ -40,6 +43,8 @@ services:
     networks:
       lnmp:
         ipv4_address: 172.18.0.4
+    environment:
+      TZ: "Asia/Shanghai"
     volumes:
       - ./www:/usr/share/nginx/html
       - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
@@ -59,6 +64,8 @@ services:
       - ./php/php-fpm.conf:/usr/local/etc/php/php-fpm.conf:ro
       - ./php/php-fpm.d:/usr/local/etc/php/php-fpm.d
       - ./etc/hosts:/etc/hosts
+    environment:
+      TZ: "Asia/Shanghai"
     networks:
       lnmp:
         ipv4_address: 172.18.0.5
