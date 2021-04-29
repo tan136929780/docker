@@ -2,7 +2,9 @@ FROM php:7.1-fpm-stretch
 
 # Install system packages for PHP extensions
 ENV DEBIAN_FRONTEND=noninteractive
-ENV SWOOLE_VERSION 4.4.3
+ENV SWOOLE_VERSION=4.4.3
+ENV REDIS_VERSION=5.0.0
+ENV PHALCON_VERSION=3.2.0
 
 RUN apt-get update && \
     apt-get -y install wget && \
@@ -131,13 +133,32 @@ RUN wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz 
     ) \
     && rm -r swoole
 
-RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/5.0.0.tar.gz \
+RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/${REDIS_VERSION}.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
     && rm -r /tmp/redis.tar.gz \
     && mkdir -p /usr/src/php/ext \
-    && mv phpredis-5.0.0 /usr/src/php/ext/redis \
+    && mv phpredis-${REDIS_VERSION} /usr/src/php/ext/redis \
     && docker-php-ext-install redis \
     && rm -rf /usr/src/php
+
+RUN wget https://github.com/swoole/swoole-src/archive/v${SWOOLE_VERSION}.tar.gz -O swoole.tar.gz \
+    && mkdir -p swoole \
+    && tar -xf swoole.tar.gz -C swoole --strip-components=1 \
+    && rm swoole.tar.gz \
+    && ( \
+    cd swoole \
+    && phpize \
+    && ./configure --enable-openssl \
+    && make \
+    && make install \
+    ) \
+    && rm -r swoole
+
+RUN set -xe \
+    && curl -LO https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz \
+    && tar xzf v${PHALCON_VERSION}.tar.gz && cd cphalcon-${PHALCON_VERSION}/build && ./install \
+    && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
+    && cd ../.. && rm -rf v${PHALCON_VERSION}.tar.gz cphalcon-${PHALCON_VERSION}
 
 # Enable mod_rewrite for images with apache
 RUN if command -v a2enmod >/dev/null 2>&1; then \
