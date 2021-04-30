@@ -153,10 +153,10 @@ RUN wget -L https://github.com/krakjoe/pthreads/archive/v${PTHREADS_VERSION}.tar
     && tar -zxvf /tmp/pthreads-${PTHREADS_VERSION}.tar.gz -C /tmp \
     && cd /tmp/pthreads-${PTHREADS_VERSION} \
     && phpize \
-	&& ./configure \
-	&& make \
-	&& make install \
-	&& docker-php-ext-enable pthreads \
+    && ./configure \
+    && make \
+    && make install \
+    && docker-php-ext-enable pthreads \
     && rm -rf /tmp/*
 
 # Enable mod_rewrite for images with apache
