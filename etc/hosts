@@ -7,7 +7,7 @@
 127.0.0.1	local.kafka2
 127.0.0.1	local.kafka3
 
-#github
+# github
 185.199.108.153 assets-cdn.github.com
 185.199.109.153 assets-cdn.github.com
 185.199.110.153 assets-cdn.github.com
