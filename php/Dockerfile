@@ -1,4 +1,4 @@
-FROM php:7.1-zts-stretch
+FROM php:7.1-fpm-stretch
 
 # Install system packages for PHP extensions
 ENV DEBIAN_FRONTEND=noninteractive
@@ -149,15 +149,15 @@ RUN wget -L https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.
     && rm -rf /tmp/*
 
 #pthreads
-RUN wget -L https://github.com/krakjoe/pthreads/archive/v${PTHREADS_VERSION}.tar.gz -O /tmp/pthreads-${PTHREADS_VERSION}.tar.gz \
-    && tar -zxvf /tmp/pthreads-${PTHREADS_VERSION}.tar.gz -C /tmp \
-    && cd /tmp/pthreads-${PTHREADS_VERSION} \
-    && phpize \
-    && ./configure \
-    && make \
-    && make install \
-    && docker-php-ext-enable pthreads \
-    && rm -rf /tmp/*
+#RUN wget -L https://github.com/krakjoe/pthreads/archive/v${PTHREADS_VERSION}.tar.gz -O /tmp/pthreads-${PTHREADS_VERSION}.tar.gz \
+#    && tar -zxvf /tmp/pthreads-${PTHREADS_VERSION}.tar.gz -C /tmp \
+#    && cd /tmp/pthreads-${PTHREADS_VERSION} \
+#    && phpize \
+#    && ./configure \
+#    && make \
+#    && make install \
+#    && docker-php-ext-enable pthreads \
+#    && rm -rf /tmp/*
 
 # Enable mod_rewrite for images with apache
 RUN if command -v a2enmod >/dev/null 2>&1; then \
