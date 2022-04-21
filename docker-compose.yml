@@ -7,6 +7,8 @@ services:
     container_name: docker-mysql
     ports:
       - "3306:3306"
+#    command:
+#      --lower_case_table_names=1
     volumes:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/user_data:/home/user_data
@@ -59,7 +61,7 @@ services:
     build: ./php
     container_name: docker-php
     ports:
-      - "9000:9000"
+      - "9999:9000"
     volumes:
       - ./www:/var/www/html
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro
