@@ -50,7 +50,7 @@ services:
       TZ: "Asia/Shanghai"
     volumes:
       - ../ssl:/ssl
-      - ../www:/usr/share/nginx/html
+      - ../../www:/usr/share/nginx/html
       - ../nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
       - ../nginx/conf/conf.d/:/etc/nginx/conf.d/:ro
     links:
