@@ -1,0 +1,44 @@
+
+         ,--.
+       ,--.'|
+   ,--,:  : |                                           Nacos 2.0.0
+,`--.'`|  ' :                       ,---.               Running in stand alone mode, All function modules
+|   :  :  | |                      '   ,'\   .--.--.    Port: 8848
+:   |   \ | :  ,--.--.     ,---.  /   /   | /  /    '   Pid: 24
+|   : '  '; | /       \   /     \.   ; ,. :|  :  /`./   Console: http://a96ccbe4fdef:8848/nacos/index.html
+'   ' ;.    ;.--.  .-. | /    / ''   | |: :|  :  ;_
+|   | | \   | \__\/: . ..    ' / '   | .; : \  \    `.      https://nacos.io
+'   : |  ; .' ," .--.; |'   ; :__|   :    |  `----.   \
+|   | '`--'  /  /  ,.  |'   | '.'|\   \  /  /  /`--'  /
+'   : |     ;  :   .'   \   :    : `----'  '--'.     /
+;   |.'     |  ,     .-./\   \  /            `--'---'
+'---'        `--`---'     `----'
+
+2022-04-21 21:07:07,107 INFO Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3b582111' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2022-04-21 21:07:07,112 INFO Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+
+2022-04-21 21:07:07,406 INFO Tomcat initialized with port(s): 8848 (http)
+
+2022-04-21 21:07:07,733 INFO Root WebApplicationContext: initialization completed in 4745 ms
+
+2022-04-21 21:07:11,682 INFO Initializing ExecutorService 'applicationTaskExecutor'
+
+2022-04-21 21:07:11,792 INFO Adding welcome page: class path resource [static/index.html]
+
+2022-04-21 21:07:12,164 INFO Creating filter chain: Ant [pattern='/**'], []
+
+2022-04-21 21:07:12,207 INFO Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7479b626, org.springframework.security.web.context.SecurityContextPersistenceFilter@3e3861d7, org.springframework.security.web.header.HeaderWriterFilter@48eb9836, org.springframework.security.web.csrf.CsrfFilter@12968227, org.springframework.security.web.authentication.logout.LogoutFilter@47a7a101, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6d025d1d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@64524dd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e8ea697, org.springframework.security.web.session.SessionManagementFilter@11b455e5, org.springframework.security.web.access.ExceptionTranslationFilter@2cfa2c4f]
+
+2022-04-21 21:07:12,294 INFO Initializing ExecutorService 'taskScheduler'
+
+2022-04-21 21:07:12,314 INFO Exposing 16 endpoint(s) beneath base path '/actuator'
+
+2022-04-21 21:07:12,411 INFO Tomcat started on port(s): 8848 (http) with context path '/nacos'
+
+2022-04-21 21:07:12,415 INFO Nacos started successfully in stand alone mode. use external storage
+
+2022-04-21 21:07:17,179 INFO Initializing Servlet 'dispatcherServlet'
+
+2022-04-21 21:07:17,190 INFO Completed initialization in 11 ms
+

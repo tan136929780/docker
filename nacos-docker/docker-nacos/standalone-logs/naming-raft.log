@@ -1,0 +1,110 @@
+2022-04-21 20:49:18,989 INFO raft peers changed: [Member{ip='0943a79d4f80', port=8848, state=UP, extendInfo={raftPort=7848}}]
+
+2022-04-21 20:50:22,727 INFO initializing Raft sub-system
+
+2022-04-21 20:50:24,018 INFO finish loading all datums, size: 0 cost 1288 ms.
+
+2022-04-21 20:50:30,580 INFO cache loaded, datum count: 0, current term: 0
+
+2022-04-21 20:50:30,583 INFO finish to load data from disk, cost: 7856 ms.
+
+2022-04-21 20:50:30,875 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2022-04-21 20:53:25,149 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","term":0,"leaderDueMs":19022,"heartbeatDueMs":2000,"state":"FOLLOWER"}, term: 0
+
+2022-04-21 20:53:25,155 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":1,"leaderDueMs":15298,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 1
+
+2022-04-21 20:53:25,155 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":2,"leaderDueMs":17790,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 2
+
+2022-04-21 20:53:25,156 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":3,"leaderDueMs":18433,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 3
+
+2022-04-21 20:53:25,156 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":4,"leaderDueMs":17327,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 4
+
+2022-04-21 20:53:25,157 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":5,"leaderDueMs":15336,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 5
+
+2022-04-21 20:53:25,160 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":6,"leaderDueMs":15494,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 6
+
+2022-04-21 20:53:25,160 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":7,"leaderDueMs":16928,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 7
+
+2022-04-21 20:53:25,161 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":8,"leaderDueMs":17036,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 8
+
+2022-04-21 20:53:25,162 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":9,"leaderDueMs":16434,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 9
+
+2022-04-21 20:53:28,870 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":10,"leaderDueMs":16820,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 10
+
+2022-04-21 20:53:46,634 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":11,"leaderDueMs":17368,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 11
+
+2022-04-21 20:54:03,396 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":12,"leaderDueMs":18302,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 12
+
+2022-04-21 20:54:23,126 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":13,"leaderDueMs":17196,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 13
+
+2022-04-21 20:54:40,971 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":14,"leaderDueMs":15268,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 14
+
+2022-04-21 20:54:55,353 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":15,"leaderDueMs":19295,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 15
+
+2022-04-21 20:55:15,373 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":16,"leaderDueMs":18342,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 16
+
+2022-04-21 20:55:33,024 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":17,"leaderDueMs":15196,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 17
+
+2022-04-21 20:55:49,993 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":18,"leaderDueMs":17430,"heartbeatDueMs":5000,"state":"CANDIDATE"}, term: 18
+
+2022-04-21 20:55:51,537 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2022-04-21 20:56:07,165 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":19,"leaderDueMs":16571,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 19
+
+2022-04-21 20:56:26,783 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":20,"leaderDueMs":17281,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 20
+
+2022-04-21 20:56:45,051 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":21,"leaderDueMs":18227,"heartbeatDueMs":3500,"state":"CANDIDATE"}, term: 21
+
+2022-04-21 20:57:00,157 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":22,"leaderDueMs":15911,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 22
+
+2022-04-21 20:57:17,226 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":23,"leaderDueMs":18860,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 23
+
+2022-04-21 20:57:36,644 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":24,"leaderDueMs":16125,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 24
+
+2022-04-21 20:57:52,434 INFO leader timeout, start voting,leader: {"ip":"0943a79d4f80:8848","voteFor":"0943a79d4f80:8848","term":25,"leaderDueMs":19431,"heartbeatDueMs":4500,"state":"CANDIDATE"}, term: 25
+
+2022-04-21 21:07:08,785 INFO raft peers changed: [Member{ip='a96ccbe4fdef', port=8848, state=UP, extendInfo={raftPort=7848}}]
+
+2022-04-21 21:07:08,814 INFO initializing Raft sub-system
+
+2022-04-21 21:07:08,814 INFO finish loading all datums, size: 0 cost 0 ms.
+
+2022-04-21 21:07:08,816 INFO cache loaded, datum count: 0, current term: 0
+
+2022-04-21 21:07:08,816 INFO finish to load data from disk, cost: 2 ms.
+
+2022-04-21 21:07:08,828 INFO timer started: leader timeout ms: 15000, heart-beat timeout ms: 5000
+
+2022-04-21 21:07:08,878 INFO leader timeout, start voting,leader: {"ip":"a96ccbe4fdef:8848","term":0,"leaderDueMs":17695,"heartbeatDueMs":4500,"state":"FOLLOWER"}, term: 0
+
+2022-04-21 21:07:08,979 INFO add listener: com.alibaba.nacos.naming.domains.meta.
+
+2022-04-21 21:07:09,432 INFO add listener: com.alibaba.nacos.naming.domains.meta.00-00---000-NACOS_SWITCH_DOMAIN-000---00-00
+
+2022-04-21 21:07:11,076 INFO raft peers changed: [Member{ip='a96ccbe4fdef', port=8848, state=UP, extendInfo={lastRefreshTime=1650546431073, raftMetaData=com.alibaba.nacos.consistency.ProtocolMetaData@621a66d6, raftPort=7848, version=2.0.0}}]
+
+2022-04-21 21:07:13,809 WARN start to close old raft protocol!!!
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for notifier
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for master task
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for heartbeat task
+
+2022-04-21 21:07:13,809 WARN clean old cache datum for old raft
+
+2022-04-21 21:07:13,809 WARN start to close old raft protocol!!!
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for notifier
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for master task
+
+2022-04-21 21:07:13,809 WARN stop old raft protocol task for heartbeat task
+
+2022-04-21 21:07:13,809 WARN clean old cache datum for old raft
+
+2022-04-21 21:07:13,810 WARN start to move old raft protocol metadata
+
+2022-04-21 21:07:13,811 WARN start to move old raft protocol metadata
+
