@@ -16,10 +16,11 @@ services:
     environment:
       TZ: "Asia/Shanghai"
       MYSQL_ROOT_PASSWORD: 123456
-    networks:
-      common:
-        aliases:
-          - mysql
+#    networks:
+#      common:
+#        aliases:
+#          - mysql
+    network_mode: "host"
 
   # cache
   redis:
@@ -29,13 +30,14 @@ services:
       - "6379:6379"
     environment:
       TZ: "Asia/Shanghai"
-    networks:
-      - common
+#    networks:
+#      - common
+    network_mode: "host"
     volumes:
       - ../redis/data:/data
 #      - ./redis/redis.conf:/etc/redis.conf
 
 #network
-networks:
-  common:
-    external: true
+#networks:
+#  common:
+#    external: true

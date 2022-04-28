@@ -12,10 +12,11 @@ services:
       - "8848:8848"
       - "9848:9848"
       - "9555:9555"
-    networks:
-      - common
+#    networks:
+#      - common
+    network_mode: "host"
     restart: always
 
-networks:
-  common:
-    external: true
+#networks:
+#  common:
+#    external: true
