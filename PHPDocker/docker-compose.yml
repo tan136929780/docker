@@ -8,10 +8,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - ../mysql/data:/var/lib/mysql
-      - ../mysql/user_data:/home/user_data
-      - ../mysql/mysql-files:/var/lib/mysql-files/
-      - ../mysql/conf/my.cnf:/etc/mysql/my.cnf
+      - ../mysqlDocker/mysql/data:/var/lib/mysql
+      - ../mysqlDocker/mysql/user_data:/home/user_data
+      - ../mysqlDocker/mysql/mysql-files:/var/lib/mysql-files/
+      - ../mysqlDocker/mysql/conf/my.cnf:/etc/mysql/my.cnf
     environment:
       TZ: "Asia/Shanghai"
       MYSQL_ROOT_PASSWORD: 123456

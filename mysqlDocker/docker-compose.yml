@@ -9,10 +9,10 @@ services:
 #    command:
 #      --lower_case_table_names=1
     volumes:
-      - ../mysql/data:/var/lib/mysql
-      - ../mysql/user_data:/home/user_data
-      - ../mysql/mysql-files:/var/lib/mysql-files/
-      - ../mysql/conf/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/user_data:/home/user_data
+      - ./mysql/mysql-files:/var/lib/mysql-files/
+      - ./mysql/conf/my.cnf:/etc/mysql/my.cnf
     environment:
       TZ: "Asia/Shanghai"
       MYSQL_ROOT_PASSWORD: 123456
