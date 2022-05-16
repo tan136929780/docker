@@ -4,3 +4,4 @@ www/
 /mysqlDocker/mysql/data/
 /redis/data/
 /nacos-docker/docker-nacos/standalone-logs/
+/dgraphDocker/dgraph/data/
