@@ -1,41 +1,5 @@
 version: "3.3"
 services:
-
-  # database
-  mysql:
-    image: mysql:8.0
-    container_name: docker-mysql
-    ports:
-      - "3306:3306"
-    volumes:
-      - ../mysqlDocker/mysql/data:/var/lib/mysql
-      - ../mysqlDocker/mysql/user_data:/home/user_data
-      - ../mysqlDocker/mysql/mysql-files:/var/lib/mysql-files/
-      - ../mysqlDocker/mysql/conf/my.cnf:/etc/mysql/my.cnf
-    environment:
-      TZ: "Asia/Shanghai"
-      MYSQL_ROOT_PASSWORD: 123456
-#    networks:
-#      lnmp:
-#        ipv4_address: 172.18.0.2
-    network_mode: "host"
-
-  # cache
-  redis:
-    container_name: docker-redis
-    image: redis:5.0
-    ports:
-      - "6379:6379"
-    environment:
-      TZ: "Asia/Shanghai"
-#    networks:
-#      lnmp:
-#        ipv4_address: 172.18.0.3
-    network_mode: "host"
-    volumes:
-      - ../redis/data:/data
-#      - ../redis/redis.conf:/etc/redis.conf
-
   #nginx
   nginx:
     image: nginx:1.19.9
