@@ -1,6 +1,6 @@
 .idea
 .DS_Store
 www/
-/mysql/data/
+/mysqlDocker/mysql/data/
 /redis/data/
 /nacos-docker/docker-nacos/standalone-logs/
