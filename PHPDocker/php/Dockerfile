@@ -101,7 +101,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1 \
     VERSION_PRESTISSIMO_PLUGIN=^0.3.10
 
 # Add configuration files
-COPY image-files/ /
+COPY image-files /
 
 # Add GITHUB_API_TOKEN support for composer
 RUN chmod 755 \
