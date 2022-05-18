@@ -1,7 +1,7 @@
 .idea
 .DS_Store
 www/
-/mysqlDocker/mysql/data/
-/tools/redis/data/
+/dbDocker/mysql/data/
+/dbDocker/redis/data/
 /nacosDocker/docker-nacos/standalone-logs/
 /dgraphDocker/dgraph/data/

@@ -2,6 +2,7 @@ version: "3.2"
 services:
   zero:
     image: dgraph/dgraph:latest
+    container_name: docker-zero
     volumes:
       - ./dgraph/data:/dgraph
     ports:
@@ -11,6 +12,7 @@ services:
     command: dgraph zero --my=zero:5080
   alpha:
     image: dgraph/dgraph:latest
+    container_name: docker-alpha
     volumes:
       - ./dgraph/data:/dgraph
     ports:
@@ -20,6 +22,7 @@ services:
     command: dgraph alpha --my=alpha:7080 --zero=zero:5080
   ratel:
     image: dgraph/ratel:latest
+    container_name: docker-ratel
     volumes:
       - ./dgraph/data:/dgraph
     ports:
