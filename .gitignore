@@ -2,6 +2,6 @@
 .DS_Store
 www/
 /mysqlDocker/mysql/data/
-/redis/data/
+/tools/redis/data/
 /nacosDocker/docker-nacos/standalone-logs/
 /dgraphDocker/dgraph/data/

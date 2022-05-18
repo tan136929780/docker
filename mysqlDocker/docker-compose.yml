@@ -34,7 +34,7 @@ services:
 #      - common
     network_mode: "host"
     volumes:
-      - ../redis/data:/data
+      - ../tools/redis/data:/data
 #      - ./redis/redis.conf:/etc/redis.conf
 
 #network
