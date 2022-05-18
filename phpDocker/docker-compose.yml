@@ -16,8 +16,8 @@ services:
     volumes:
       - ../ssl:/ssl
       - ../../www:/usr/share/nginx/html
-      - ../nginxDocker/conf/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ../nginxDocker/conf/conf.d/:/etc/nginx/conf.d/:ro
+      - ../nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/conf/conf.d/:/etc/nginx/conf.d/:ro
 #    links:
 #      - php
 
