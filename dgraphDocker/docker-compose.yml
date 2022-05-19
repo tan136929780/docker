@@ -9,7 +9,8 @@ services:
       - 5080:5080
       - 6080:6080
     restart: on-failure
-    command: dgraph zero --my=zero:5080
+    command: dgraph zero --my=docker-zero:5080
+#    network_mode: "host"
   alpha:
     image: dgraph/dgraph:latest
     container_name: docker-alpha
@@ -19,7 +20,8 @@ services:
       - 8080:8080
       - 9080:9080
     restart: on-failure
-    command: dgraph alpha --my=alpha:7080 --zero=zero:5080
+    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080
+#    network_mode: "host"
   ratel:
     image: dgraph/ratel:latest
     container_name: docker-ratel
