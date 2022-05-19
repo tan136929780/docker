@@ -11,6 +11,9 @@ services:
       - 5080:5080
       - 6080:6080
     restart: on-failure
+    networks:
+      dgraph:
+        ipv4_address: 172.18.0.2
     command: dgraph zero --my=docker-zero:5080
 #    network_mode: "host"
   alpha:
@@ -24,7 +27,10 @@ services:
       - 8080:8080
       - 9080:9080
     restart: on-failure
-    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080 --security="whitelist=127.0.0.1,172.21.0.1"
+    networks:
+      dgraph:
+        ipv4_address: 172.18.0.3
+    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080 --security="whitelist=0.0.0.0"
 #    network_mode: "host"
   ratel:
     image: dgraph/ratel:latest
@@ -36,3 +42,10 @@ services:
     ports:
       - 8000:8000
     network_mode: "host"
+
+#network
+networks:
+  dgraph:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
