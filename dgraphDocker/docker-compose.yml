@@ -20,7 +20,7 @@ services:
       - 8080:8080
       - 9080:9080
     restart: on-failure
-    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080
+    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080 --security="whitelist=127.0.0.1,172.21.0.1"
 #    network_mode: "host"
   ratel:
     image: dgraph/ratel:latest
