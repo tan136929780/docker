@@ -32,7 +32,7 @@ services:
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro
       - ./php/php-fpm.conf:/usr/local/etc/php/php-fpm.conf:ro
       - ./php/php-fpm.d:/usr/local/etc/php/php-fpm.d
-      - ../tools/etc/hosts:/etc/hosts
+      - ../tools/etc/hosts:/etc/hosts:ro
     environment:
       TZ: "Asia/Shanghai"
 #    networks:
