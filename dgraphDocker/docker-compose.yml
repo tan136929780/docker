@@ -7,8 +7,6 @@ services:
       - ./dgraph/data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
-    environment:
-      TZ: "Asia/Shanghai"
     ports:
       - 5080:5080
       - 6080:6080
@@ -22,8 +20,6 @@ services:
       - ./dgraph/data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
-    environment:
-      TZ: "Asia/Shanghai"
     ports:
       - 8080:8080
       - 9080:9080
@@ -37,8 +33,6 @@ services:
       - ./dgraph/data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
-    environment:
-      TZ: "Asia/Shanghai"
     ports:
       - 8000:8000
     network_mode: "host"
