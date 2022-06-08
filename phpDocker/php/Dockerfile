@@ -86,11 +86,11 @@ RUN  docker-php-ext-configure gd \
 
 # Install PECL extensions
 RUN printf "\n" | pecl install \
-        imagick \
-        mongodb && \
+        imagick && \
+#        mongodb && \
     docker-php-ext-enable \
-        imagick \
-        mongodb
+        imagick
+#        mongodb
 
 # Environment settings
 ENV COMPOSER_ALLOW_SUPERUSER=1 \
@@ -141,12 +141,12 @@ RUN wget -L https://github.com/phpredis/phpredis/archive/${REDIS_VERSION}.tar.gz
     && rm -rf /tmp/*
 
 #phalcon
-RUN wget -L https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz -O /tmp/cphalcon-${PHALCON_VERSION}.tar.gz \
-    && tar -zxvf /tmp/cphalcon-${PHALCON_VERSION}.tar.gz -C /tmp \
-    && cd /tmp/cphalcon-${PHALCON_VERSION}/build \
-    && ./install \
-    && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
-    && rm -rf /tmp/*
+#RUN wget -L https://github.com/phalcon/cphalcon/archive/v${PHALCON_VERSION}.tar.gz -O /tmp/cphalcon-${PHALCON_VERSION}.tar.gz \
+#    && tar -zxvf /tmp/cphalcon-${PHALCON_VERSION}.tar.gz -C /tmp \
+#    && cd /tmp/cphalcon-${PHALCON_VERSION}/build \
+#    && ./install \
+#    && echo "extension=phalcon.so" > /usr/local/etc/php/conf.d/phalcon.ini \
+#    && rm -rf /tmp/*
 
 #pthreads
 #RUN wget -L https://github.com/krakjoe/pthreads/archive/v${PTHREADS_VERSION}.tar.gz -O /tmp/pthreads-${PTHREADS_VERSION}.tar.gz \
