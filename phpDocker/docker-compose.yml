@@ -10,7 +10,7 @@ services:
 #    networks:
 #      lnmp:
 #        ipv4_address: 172.18.0.4
-    network_mode: "host"
+#    network_mode: "host"
     environment:
       TZ: "Asia/Shanghai"
     volumes:
@@ -38,7 +38,7 @@ services:
 #    networks:
 #      lnmp:
 #        ipv4_address: 172.18.0.5
-    network_mode: "host"
+#    network_mode: "host"
 #    links:
 #      - mysql
 #      - redis

@@ -17,7 +17,7 @@ RUN wget ftp://mcrypt.hellug.gr/pub/crypto/mcrypt/attic/libmcrypt/libmcrypt-2.5.
     && rm libmcrypt-2.5.7.tar.gz \
     && ( \
     cd mcrypt \
-    && ./configure \
+    && ./configure --build=arm-linux \
     && make \
     && make install \
     ) \

@@ -14,7 +14,7 @@ services:
       - "9555:9555"
 #    networks:
 #      - common
-    network_mode: "host"
+#    network_mode: "host"
     restart: always
 
 #networks:

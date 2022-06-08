@@ -2,12 +2,15 @@ version: "3.3"
 services:
   # database
   mysql:
-    image: mysql:8.0
+#    image: mysql:8.0
+    image: mysql:8-oracle
     container_name: docker-mysql
     ports:
       - "3306:3306"
-#    command:
-#      --lower_case_table_names=1
+    command:
+#      --lower_case_table_names=0 # unix
+#      --lower_case_table_names=1 # windows
+      --lower_case_table_names=2 # mac
     volumes:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/user_data:/home/user_data
@@ -20,7 +23,7 @@ services:
 #      common:
 #        aliases:
 #          - mysql
-    network_mode: "host"
+#    network_mode: "host"
 
   # cache
   redis:
@@ -32,7 +35,7 @@ services:
       TZ: "Asia/Shanghai"
 #    networks:
 #      - common
-    network_mode: "host"
+#    network_mode: "host"
     volumes:
       - ./redis/data:/data
 #      - ./redis/redis.conf:/etc/redis.conf

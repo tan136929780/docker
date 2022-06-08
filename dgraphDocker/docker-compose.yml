@@ -41,7 +41,7 @@ services:
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:
       - 8000:8000
-    network_mode: "host"
+#    network_mode: "host"
 
 #network
 networks:
