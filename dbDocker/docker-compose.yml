@@ -36,6 +36,8 @@ services:
 #    networks:
 #      - common
 #    network_mode: "host"
+#    command:
+#      --requirepass "123456"
     volumes:
       - ./redis/data:/data
 #      - ./redis/redis.conf:/etc/redis.conf
