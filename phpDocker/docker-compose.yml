@@ -1,26 +1,5 @@
 version: "3.3"
 services:
-  #nginx
-  nginx:
-    image: nginx:1.19.9
-    container_name: docker-nginx
-    ports:
-      - "80:80"
-      - "443:443"
-#    networks:
-#      lnmp:
-#        ipv4_address: 172.18.0.4
-#    network_mode: "host"
-    environment:
-      TZ: "Asia/Shanghai"
-    volumes:
-      - ../tools/ssl:/ssl
-      - ../www:/usr/share/nginx/html
-      - ../tools/nginx/conf/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ../tools/nginx/conf/conf.d/:/etc/nginx/conf.d/:ro
-#    links:
-#      - php
-
   # php-fpm
   php:
     build: php
@@ -35,17 +14,3 @@ services:
       - ../tools/etc/hosts:/etc/hosts:ro
     environment:
       TZ: "Asia/Shanghai"
-#    networks:
-#      lnmp:
-#        ipv4_address: 172.18.0.5
-#    network_mode: "host"
-#    links:
-#      - mysql
-#      - redis
-
-#network
-#networks:
-#  lnmp:
-#    ipam:
-#      config:
-#        - subnet: 172.18.0.0/16
