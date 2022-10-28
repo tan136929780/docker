@@ -1,5 +1,5 @@
 .idea
-.DS_Store
+.DS_Store/
 www/
 /nacosDocker/docker-nacos/standalone-logs/
 /dgraphDocker/dgraph/data/
@@ -11,6 +11,6 @@ www/
 /mongoDbDocker/data/
 /influxDocker/data/
 /mysqlDocker/mysql/data/
-/zookeeperDocker/data
-/kafkaDocker/data
-/elkDocker/elasticsearch/data
+/zookeeperDocker/data/
+/kafkaDocker/data/
+/elkDocker/elasticsearch/data/
