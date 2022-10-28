@@ -11,3 +11,6 @@ www/
 /mongoDbDocker/data/
 /influxDocker/data/
 /mysqlDocker/mysql/data/
+/zookeeperDocker/data
+/kafkaDocker/data
+/elkDocker/elasticsearch/data
