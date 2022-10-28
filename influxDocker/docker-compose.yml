@@ -1,0 +1,15 @@
+version: "3"
+services:
+  influxdb:
+    image: influxdb:2.4.0-alpine
+    container_name: influxdb
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./data:/var/lib/influxdb
+    ports:
+      - 8083:8083
+      - 8086:8086
+    environment:
+      INFLUXDB_ADMIN_ENABLED: true
+      INFLUXDB_ADMIN_USER: root
+      INFLUXDB_ADMIN_PASSWORD: 123456

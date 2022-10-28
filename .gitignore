@@ -5,3 +5,10 @@ www/
 /dbDocker/redis/data/
 /nacosDocker/docker-nacos/standalone-logs/
 /dgraphDocker/dgraph/data/
+/redisDocker/redis/data/
+/tomcatDocker/data/
+/tomcatDocker/webapps/
+/prometheusDocker/data/
+/mongoDbDocker/log/
+/mongoDbDocker/data/
+/influxDocker/data/

@@ -1,0 +1,66 @@
+version: "3"
+services:
+  prometheus:
+    container_name: prometheus
+    image: prom/prometheus:v2.39.1
+    ports:
+      - 9090:9090
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./data:/prometheus
+      - ./conf/prometheus:/etc/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.console.libraries=/usr/share/prometheus/console_libraries
+      - --web.enable-lifecycle
+      - --web.console.templates=/usr/share/prometheus/consoles
+      - --storage.tsdb.retention.time=30d
+      - --storage.tsdb.retention.size=100MB
+#      - --storage.tsdb.no-lockfile
+#      - --storage.tsdb.wal-compression
+#      - --rules.alert.resend-delay=5s
+#      - --web.listen-address=0.0.0.0:19091
+#      - --query.timeout=2m
+#      - --log.level=info
+#      - --log.format=ogfmt
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+  alertmanager:
+    container_name: alertmanager
+    image: prom/alertmanager:v0.24.0
+    ports:
+      - 9093:9093
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+#      - ./conf/alertmanager:/etc/alertmanager
+
+  blackbox-exporter:
+    container_name: blackbox-exporter
+    image: prom/blackbox-exporter:v0.22.0
+    ports:
+      - 9115:9115
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+#      - ./conf/blackbox-exporter:/etc/blackbox_exporter
+
+#  prometheus-alert:
+#    container_name: prometheus-alert
+#    image: feiyu563/prometheus-alert:v4.8.2
+#    ports:
+#      - 8080:8080
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
+#      - ./conf/prometheus-alert:/app/conf

@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  mongo:
+    image: mongo:4.0
+    ports:
+      - 27017:27017
+    tty: true
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/data/db
+      - ./log:/data/log
+    command:
+      - /bin/bash
+      - -c
+      - mongod --port 27017 --bind_ip_all --auth --dbpath "/data/db"   --logpath "/data/log/db.log"
+  # 这个地方很有意思，如果写成"command: mongod ....."形式，则mongodb这个容器会不断的重启，并且未提示一些文件不存在之类的错误信息，原因未知
+#
+#  mongo-express:
+#    links:
+#      - mongo
+#    image: mongo-express
+#    ports:
+#      - 8081:8081
+#    environment:
+#      ME_CONFIG_OPTIONS_EDITORTHEME: 3024-night
+#      ME_CONFIG_BASICAUTH_USERNAME: root
+#      ME_CONFIG_BASICAUTH_PASSWORD: 123456
+#      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#      ME_CONFIG_MONGODB_ADMINPASSWORD: 123456

@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  # php-fpm
+  php:
+    build: php
+    container_name: docker-php
+    ports:
+      - "9000:9000"
+    volumes:
+      - ../www:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/php.ini:ro
+      - ./php/php-fpm.conf:/usr/local/etc/php/php-fpm.conf:ro
+      - ./php/php-fpm.d:/usr/local/etc/php/php-fpm.d
+      - ../tools/etc/hosts:/etc/hosts:ro
+    environment:
+      TZ: "Asia/Shanghai"
