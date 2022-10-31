@@ -14,4 +14,4 @@ services:
 #      --requirepass "123456"
     volumes:
       - ./redis/data:/data
-#      - ./redis/redis.conf:/etc/redis.conf
+#      - ./redis/redis.conf:/etc/redis/redis.conf
