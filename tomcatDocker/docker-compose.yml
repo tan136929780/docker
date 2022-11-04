@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   tomcat:
-    restart: always
+#    restart: always
     image: tomcat:8.5.83-jre8
     container_name: tomcat
     ports:
