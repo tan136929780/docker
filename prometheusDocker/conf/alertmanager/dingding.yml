@@ -1,0 +1,5 @@
+targets:
+  webhook:
+    url: https://oapi.dingtalk.com/robot/send?access_token=16c7ac6f96116eb7a8d4ae662e322852b0dd8eb66795f0a6f616ad8052a93e61             #修改为钉钉机器人的webhook
+    mention:
+      all: true

@@ -1,0 +1,23 @@
+global:
+  resolve_timeout: 1h
+  smtp_smarthost: 'smtp.qq.com:25'
+  smtp_from: '530355377@qq.com'
+  smtp_hello: 'qq.com'
+  smtp_auth_username: '530355377@qq.com'
+  smtp_auth_password: 'fivkkrwpxiblbhgb'
+  smtp_require_tls: false
+route:
+  group_by: ['job', 'altername', 'cluster', 'service','severity']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 12h
+  receiver: 'default'
+receivers:
+- name: 'default'
+  email_configs:
+  - to: '136929780@qq.com'
+  - to: '504060654@qq.com'
+  - to: 'zangxiaoxiao152198@126.com'
+  webhook_configs:
+  - url: 'http://dingtalk:8060/dingtalk/webhook/send'
+    send_resolved: true     # 表示服务恢复后会收到恢复告警

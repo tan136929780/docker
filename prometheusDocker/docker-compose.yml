@@ -35,14 +35,14 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
-  alertmanager:
-    container_name: alertmanager
-    image: prom/alertmanager:v0.24.0
-    ports:
-      - 9093:9093
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+#  alertmanager:
+#    container_name: alertmanager
+#    image: prom/alertmanager:v0.24.0
+#    ports:
+#      - 9093:9093
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
 #      - ./conf/alertmanager:/etc/alertmanager
 
   blackbox-exporter:
