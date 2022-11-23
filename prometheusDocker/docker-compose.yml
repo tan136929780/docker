@@ -26,6 +26,17 @@ services:
 #      - --log.level=info
 #      - --log.format=ogfmt
 
+  monitor:
+    container_name: monitor
+    image: monitor:0.0.1
+    ports:
+      - 9060:9060
+      - 9081:9081
+      - 8080:8080
+    volumes:
+      - ./config:/usr/local/test/config
+      - ./log:/usr/local/test/log
+
   grafana:
     container_name: grafana
     image: grafana/grafana
