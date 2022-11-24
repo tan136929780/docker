@@ -16,7 +16,7 @@ services:
       - --web.console.libraries=/usr/share/prometheus/console_libraries
       - --web.enable-lifecycle
       - --web.console.templates=/usr/share/prometheus/consoles
-      - --storage.tsdb.retention.time=30d
+      - --storage.tsdb.retention.time=7d
       - --storage.tsdb.retention.size=100MB
 #      - --storage.tsdb.no-lockfile
 #      - --storage.tsdb.wal-compression
@@ -36,15 +36,15 @@ services:
     volumes:
       - ./config:/usr/local/test/config
       - ./log:/usr/local/test/log
-
-  grafana:
-    container_name: grafana
-    image: grafana/grafana
-    ports:
-      - 3000:3000
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+#
+#  grafana:
+#    container_name: grafana
+#    image: grafana/grafana
+#    ports:
+#      - 3000:3000
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
 
 #  alertmanager:
 #    container_name: alertmanager
@@ -56,14 +56,14 @@ services:
 #      - /etc/timezone:/etc/timezone:ro
 #      - ./conf/alertmanager:/etc/alertmanager
 
-  blackbox-exporter:
-    container_name: blackbox-exporter
-    image: prom/blackbox-exporter:v0.22.0
-    ports:
-      - 9115:9115
-    volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
+#  blackbox-exporter:
+#    container_name: blackbox-exporter
+#    image: prom/blackbox-exporter:v0.22.0
+#    ports:
+#      - 9115:9115
+#    volumes:
+#      - /etc/localtime:/etc/localtime:ro
+#      - /etc/timezone:/etc/timezone:ro
 #      - ./conf/blackbox-exporter:/etc/blackbox_exporter
 
 #  prometheus-alert:
