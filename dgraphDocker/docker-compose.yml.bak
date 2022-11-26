@@ -1,0 +1,51 @@
+version: "3.2"
+services:
+  zero:
+    image: dgraph/dgraph:latest
+    container_name: docker-zero
+    volumes:
+      - ./dgraph/data:/dgraph
+      - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
+      - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
+    ports:
+      - 5080:5080
+      - 6080:6080
+    restart: on-failure
+    networks:
+      dgraph:
+        ipv4_address: 172.18.0.2
+    command: dgraph zero --my=docker-zero:5080
+#    network_mode: "host"
+  alpha:
+    image: dgraph/dgraph:latest
+    container_name: docker-alpha
+    volumes:
+      - ./dgraph/data:/dgraph
+      - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
+      - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
+    ports:
+      - 8080:8080
+      - 9080:9080
+    restart: on-failure
+    networks:
+      dgraph:
+        ipv4_address: 172.18.0.3
+    command: dgraph alpha --my=docker-alpha:7080 --zero=docker-zero:5080 --security="whitelist=0.0.0.0/0,127.0.0.1,172.18.0.1"
+#    network_mode: "host"
+  ratel:
+    image: dgraph/ratel:latest
+    container_name: docker-ratel
+    volumes:
+      - ./dgraph/data:/dgraph
+      - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
+      - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
+    ports:
+      - 8000:8000
+#    network_mode: "host"
+
+#network
+networks:
+  dgraph:
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
