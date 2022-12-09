@@ -3,7 +3,10 @@ global:
   scrape_interval:     5s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 5s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
-
+remote_write:
+  - url: "http://10.1.68.60:8086/api/v1/prom/write?db=prometheus&u=prometheus&p=prometheuspwd"
+remote_read:
+  - url: "http://10.1.68.60:8086/api/v1/prom/read?db=prometheus&u=prometheus&p=prometheuspwd"
 # Alertmanager configuration
 #alerting:
 #  alertmanagers:
@@ -40,4 +43,4 @@ scrape_configs:
 #          - node_exporter
     metrics_path: '/monitor/prometheus'
     static_configs:
-      - targets: ['10.1.68.137:9081']
+      - targets: ['10.1.68.60:9081']

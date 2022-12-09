@@ -8,7 +8,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
-      - ./data:/prometheus
+      - ./data/prometheus:/prometheus
       - ./conf/prometheus:/etc/prometheus
     command:
       - --config.file=/etc/prometheus/prometheus.yml
@@ -34,8 +34,29 @@ services:
       - 9081:9081
       - 8080:8080
     volumes:
-      - ./config:/usr/local/test/config
+      - ./conf/monitor:/usr/local/test/config
       - ./log:/usr/local/test/log
+
+  influxdb:
+    image: influxdb:1.8.10
+    container_name: influxdb
+    hostname: influxdb
+    volumes:
+      - ./conf/influxdb:/etc/influxdb
+      - ./influxdb/data:/var/lib/influxdb/data
+    ports:
+      - 8086:8086
+      - 8087:8083
+    environment:
+      - TZ=Asia/Shanghai
+      - INFLUXDB_DB=prometheus
+      - INFLUXDB_ADMIN_ENABLED=true
+      - INFLUXDB_ADMIN_USER=admin
+      - INFLUXDB_ADMIN_PASSWORD=adminpwd
+      - INFLUXDB_USER=prometheus
+      - INFLUXDB_USER_PASSWORD=prometheuspwd
+      - INFLUXDB_CONFIG_PATH=/etc/influxdb/influxdb.conf
+
 #
 #  grafana:
 #    container_name: grafana
