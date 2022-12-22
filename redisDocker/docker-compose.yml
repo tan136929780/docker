@@ -2,7 +2,7 @@ version: "3.3"
 services:
   redis:
     image: redis:5.0
-    container_name: docker-redis
+    container_name: redis
     ports:
       - "6379:6379"
     environment:
