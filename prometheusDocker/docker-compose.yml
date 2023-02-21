@@ -4,7 +4,7 @@ services:
     container_name: prometheus
     image: prom/prometheus:v2.39.1
     ports:
-      - 9090:9090
+      - 9099:9090
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -28,7 +28,7 @@ services:
 
   monitor:
     container_name: monitor
-    image: monitor:0.0.1
+    image: monitor:1.1.5
     ports:
       - 9060:9060
       - 9081:9081
@@ -46,7 +46,7 @@ services:
       - ./influxdb/data:/var/lib/influxdb/data
     ports:
       - 8086:8086
-      - 8083:8083
+      - 8087:8083
     environment:
       - TZ=Asia/Shanghai
       - INFLUXDB_DB=prometheus
