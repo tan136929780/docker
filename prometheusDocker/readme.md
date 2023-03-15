@@ -1,17 +1,24 @@
 # README
+安装docker-compose
+```
+curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
+```
 - 导入镜像：docker load -i ./monitor.tar
+- 导入镜像：docker load -i ./monitorCommon.tar
 - 服务grpc端口9060
 - data目录为数据存储 需要递归777权限
 - log目录为日志，包含错误日志和运行日志
-- conf目录是监控数据库配置，prometheus、monitor的配置需要修改ip为主机ip
-  - monitor配置中需要redis配置
+- monitor配置中需要redis配置
 - 执行docker-compose up -d 命令启动
 - 确认编排的服务启动状态
 - influxdb 需要设置数据库prometheus默认保存时间7天
   - 进入influx容器，执行influx命令
   - 执行use prometheus
   - 创建默认实效规则执行：create retention policy prometheus_7d on prometheus duration 7d replication 1 shard duration 1h default
-  - 查看持久化策略：show retention policies on prometheus
 
 - 依赖vmcs服务，获取配置信息，配置信息样例如下：
 // 模型数据
@@ -38,16 +45,6 @@
         "property.status": 1
       },
       {
-        "instance.isa": [
-          "property"
-        ],
-        "instance.status": 1,
-        "property.type": "string",
-        "property.identifier": "tags",
-        "property.name": "标识",
-        "property.status": 1
-      },
-      {
         "instance.identifier": "7a6cedbc155e42a5",
         "instance.isa": [
           "property"
@@ -59,6 +56,30 @@
         "property.status": 1
       },
       {
+        "instance.identifier": "Metrics10e97f92061254ca2",
+        "instance.isa": [
+          "property"
+        ],
+        "instance.status": 1,
+        "property.type": "int",
+        "property.identifier": "count",
+        "property.index": "",
+        "property.name": "是否计数",
+        "property.status": 1
+      },
+      {
+        "instance.identifier": "Metrics20e97f92061254ca2",
+        "instance.isa": [
+          "property"
+        ],
+        "instance.status": 1,
+        "property.type": "int",
+        "property.identifier": "size",
+        "property.index": "",
+        "property.name": "计数大小",
+        "property.status": 1
+      },
+      {
         "instance.identifier": "d8b3d52cb2504732",
         "instance.isa": [
           "property"
@@ -67,6 +88,16 @@
         "property.type": "string",
         "property.identifier": "desc",
         "property.name": "描述",
+        "property.status": 1
+      },
+      {
+        "instance.isa": [
+          "property"
+        ],
+        "instance.status": 1,
+        "property.type": "string",
+        "property.identifier": "tags",
+        "property.name": "标识",
         "property.status": 1
       }
     ]
@@ -180,6 +211,8 @@
   "Metrics.desc": "cpu占比",
   //是否持久化
   "Metrics.persistence": 1,
+  "Metrics.count": 1,// 预留
+  "Metrics.size": 1,// 预留
   //指标名
   "Metrics.name": "cpu_ps",
   //tag
