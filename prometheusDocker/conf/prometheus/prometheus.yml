@@ -4,9 +4,9 @@ global:
   evaluation_interval: 5s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 remote_write:
-  - url: "http://10.1.68.60:8086/api/v1/prom/write?db=prometheus&u=prometheus&p=prometheuspwd"
+  - url: "http://10.1.68.60:18086/api/v1/prom/write?db=prometheus&u=prometheus&p=prometheuspwd"
 remote_read:
-  - url: "http://10.1.68.60:8086/api/v1/prom/read?db=prometheus&u=prometheus&p=prometheuspwd"
+  - url: "http://10.1.68.60:18086/api/v1/prom/read?db=prometheus&u=prometheus&p=prometheuspwd"
 # Alertmanager configuration
 #alerting:
 #  alertmanagers:

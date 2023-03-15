@@ -1,10 +1,9 @@
 version: "3"
 services:
   prometheus:
-    container_name: prometheus
     image: prom/prometheus:v2.39.1
-    ports:
-      - 9099:9090
+    container_name: prometheus
+    network_mode: "host"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -21,18 +20,15 @@ services:
 #      - --storage.tsdb.no-lockfile
 #      - --storage.tsdb.wal-compression
 #      - --rules.alert.resend-delay=5s
-#      - --web.listen-address=0.0.0.0:19091
+      - --web.listen-address=0.0.0.0:9099
 #      - --query.timeout=2m
 #      - --log.level=info
 #      - --log.format=ogfmt
 
   monitor:
+    image: monitor:1.1.6
     container_name: monitor
-    image: monitor:1.1.5
-    ports:
-      - 9060:9060
-      - 9081:9081
-      - 8080:8080
+    network_mode: "host"
     volumes:
       - ./conf/monitor:/usr/local/test/config
       - ./log:/usr/local/test/log
@@ -41,12 +37,10 @@ services:
     image: influxdb:1.8.10
     container_name: influxdb
     hostname: influxdb
+    network_mode: "host"
     volumes:
       - ./conf/influxdb:/etc/influxdb
       - ./influxdb/data:/var/lib/influxdb/data
-    ports:
-      - 8086:8086
-      - 8087:8083
     environment:
       - TZ=Asia/Shanghai
       - INFLUXDB_DB=prometheus
