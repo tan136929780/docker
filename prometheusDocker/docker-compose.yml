@@ -40,7 +40,7 @@ services:
     network_mode: "host"
     volumes:
       - ./conf/influxdb:/etc/influxdb
-      - ./influxdb/data:/var/lib/influxdb/data
+      - ./data/influxdb/data:/var/lib/influxdb/data
     environment:
       - TZ=Asia/Shanghai
       - INFLUXDB_DB=prometheus
