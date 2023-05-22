@@ -26,7 +26,7 @@ services:
 #      - --log.format=ogfmt
 
   monitor:
-    image: monitor:1.1.6
+    image: monitor:master
     container_name: monitor
     network_mode: "host"
     volumes:
