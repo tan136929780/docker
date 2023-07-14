@@ -1,7 +1,7 @@
 version: "3.2"
 services:
   dgraph:
-    image: dgraph/standalone:v20.03.0
+    image: dgraph/standalone:v20.11.2
     container_name: dgraph
     volumes:
       - ./dgraph/data:/dgraph
