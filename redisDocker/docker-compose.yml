@@ -3,6 +3,8 @@ services:
   redis:
     image: redis:5.0
     container_name: redis
+    logging:
+      driver: none
     ports:
       - "6379:6379"
     environment:

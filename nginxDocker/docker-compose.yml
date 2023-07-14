@@ -4,6 +4,8 @@ services:
   nginx:
     image: nginx:1.19.9
     container_name: nginx
+    logging:
+      driver: none
     ports:
       - "80:80"
       - "443:443"

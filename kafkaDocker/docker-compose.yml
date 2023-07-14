@@ -6,6 +6,8 @@ services:
     image: wurstmeister/kafka:2.13-2.7.0
     #    restart: always
     container_name: kafka1
+    logging:
+      driver: none
     ports:
       - "9092:9092"
     environment:
@@ -31,6 +33,8 @@ services:
     image: wurstmeister/kafka:2.13-2.7.0
     #    restart: always
     container_name: kafka2
+    logging:
+      driver: none
     ports:
       - "9093:9092"
     environment:
@@ -56,6 +60,8 @@ services:
     image: wurstmeister/kafka:2.13-2.7.0
     #    restart: always
     container_name: kafka3
+    logging:
+      driver: none
     ports:
       - "9094:9092"
     environment:
@@ -81,6 +87,8 @@ services:
     image: sheepkiller/kafka-manager:latest
     #    restart: always
     container_name: kafka-manager
+    logging:
+      driver: none
     ports:
       - "9002:9000"
     environment:

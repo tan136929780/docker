@@ -3,6 +3,8 @@ services:
   prometheus:
     image: prom/prometheus:v2.39.1
     container_name: prometheus
+    logging:
+      driver: none
     network_mode: "host"
     volumes:
       - /etc/localtime:/etc/localtime:ro
@@ -28,6 +30,8 @@ services:
   monitor:
     image: monitor:master
     container_name: monitor
+    logging:
+      driver: none
     network_mode: "host"
     volumes:
       - ./conf/monitor:/usr/local/test/config
@@ -36,6 +40,8 @@ services:
   influxdb:
     image: influxdb:1.8.10
     container_name: influxdb
+    logging:
+      driver: none
     hostname: influxdb
     network_mode: "host"
     volumes:

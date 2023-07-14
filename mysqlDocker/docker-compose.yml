@@ -5,6 +5,8 @@ services:
 #    image: mysql:8.0
     image: mysql:8-oracle
     container_name: mysql
+    logging:
+      driver: none
     ports:
       - "3306:3306"
     command:

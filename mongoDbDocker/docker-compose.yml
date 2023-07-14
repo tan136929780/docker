@@ -3,6 +3,8 @@ services:
   mongo:
     image: mongo:4.0
     container_name: mongo
+    logging:
+      driver: none
     ports:
       - 27017:27017
     tty: true

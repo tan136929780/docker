@@ -5,6 +5,8 @@ services:
     image: zookeeper:3.7
 #    restart: always
     container_name: zookeeper1
+    logging:
+      driver: none
     ports:
       - "2181:2181"
     volumes:
@@ -23,6 +25,8 @@ services:
     image: zookeeper:3.7
 #    restart: always
     container_name: zookeeper2
+    logging:
+      driver: none
     ports:
       - "2182:2181"
     volumes:
@@ -41,6 +45,8 @@ services:
     image: zookeeper:3.7
 #    restart: always
     container_name: zookeeper3
+    logging:
+      driver: none
     ports:
       - "2183:2181"
     volumes:

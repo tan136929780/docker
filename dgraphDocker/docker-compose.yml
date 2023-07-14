@@ -3,6 +3,8 @@ services:
   dgraph:
     image: dgraph/standalone:v20.11.2
     container_name: dgraph
+    logging:
+      driver: none
     volumes:
       - ./dgraph/data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
