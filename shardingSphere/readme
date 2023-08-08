@@ -1,0 +1,28 @@
+ docker run -d -p --name tmp visionvera/datasphere-proxy:1.0.1
+
+docker run -d --name datasphere \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/conf:/opt/datasphere-proxy/conf \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/ext-lib:/opt/datasphere-proxy/ext-lib \
+    -e PORT=3308 -p 3308:3308 visionvera/datasphere-proxy:1.0.1
+
+
+docker run -d \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/conf:/opt/shardingsphere-proxy/conf \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/ext-lib:/opt/shardingsphere-proxy/ext-lib \
+    -e PORT=3308 -p 3308:3308 apache/shardingsphere-proxy:5.4.1-SNAPSHOT
+ 
+docker run -d \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/conf:/opt/datasphere-proxy/conf \
+    -v /Users/tanxianchen/coding/docker/shardingSphere/ext-lib:/opt/datasphere-proxy/ext-lib \
+    -e PORT=3308 -p 3308:3308 visionvera/datasphere-proxy:5.4.1-SNAPSHOT
+
+
+ docker rmi $(docker images | grep "none" | awk '{print $3}')
+
+
+mvn clean install -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dspotbugs.skip=true -Drat.skip=true -Djacoco.skip=true -DskipITs -DskipTests -Prelease
+
+/opt/datasphere-proxy/lib/datasphere-firewall-core-1.0.1.jar
+
+
+docker cp  core/target/datasphere-firewall-core-1.0.1.jar datasphere:/opt/datasphere-proxy/lib/datasphere-firewall-core-1.0.1.jar
