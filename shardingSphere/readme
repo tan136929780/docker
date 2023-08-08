@@ -25,4 +25,4 @@ mvn clean install -Dmaven.javadoc.skip=true -Dcheckstyle.skip=true -Dspotbugs.sk
 /opt/datasphere-proxy/lib/datasphere-firewall-core-1.0.1.jar
 
 
-docker cp  core/target/datasphere-firewall-core-1.0.1.jar datasphere:/opt/datasphere-proxy/lib/datasphere-firewall-core-1.0.1.jar
+docker cp ./target/datasphere-firewall-core-1.0.1.jar datasphere:/opt/datasphere-proxy/lib/datasphere-firewall-core-1.0.1.jar
