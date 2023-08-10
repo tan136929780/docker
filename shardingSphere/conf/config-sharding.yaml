@@ -145,7 +145,7 @@ dataSources:
 #    maxPoolSize: 50
 #    minPoolSize: 1
 #
-rules:
+#rules:
 #- !SHARDING
 #  tables:
 #    t_order:
@@ -205,6 +205,47 @@ rules:
 #    sharding_key_required_auditor:
 #      type: DML_SHARDING_CONDITIONS
 #
-- !FIREWALL
- tables:
-   - t_ent_order_detail
+rules:
+  - !BROADCAST
+    tables:
+      - person
+  - !FIREWALL
+    globalSqlRules:
+      - databaseType: MYSQL
+        scriptType: REGEXP
+        sqlScript: test
+        priorityLevel: 1
+        action: DROP
+        throwRiskCode: 0x0001
+      - databaseType: MYSQL
+        scriptType: REGEXP
+        sqlScript: test
+        priorityLevel: 1
+        action: DROP
+        throwRiskCode: 0x0001
+    sqlRules:
+      - databaseType: MYSQL
+        databaseId: 1
+        appId: 1
+        userId: 1
+        scriptType: REGEXP
+        sqlScript: test
+        priorityLevel: 1
+        action: DROP
+        throwRiskCode: 0x0001
+    dataRules:
+      - databaseType: MYSQL
+        databaseId: 1
+        appId: 1
+        userId: 1
+        rulePolicy: TABLES
+        tableNames:
+          - person
+        scriptType: REGEXP
+        sqlScript: test
+        maxRowSize: 100
+        frequencyType: DAY
+        frequencyValue: 1
+        priorityLevel: 1
+        action: DROP
+        throwRiskCode: 0x0001
