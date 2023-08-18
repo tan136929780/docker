@@ -1,12 +1,13 @@
 version: '3.3'
 services:
   dgraph:
-    image: visionvera/datasphere-proxy:1.0.1
+    image: visionvera/datasphere-proxy:1.0.2
     container_name: datasphere
     restart: always
     volumes:
       - ./conf:/opt/datasphere-proxy/conf
       - ./ext-lib:/opt/datasphere-proxy/ext-lib
+      - ./logs:/opt/datasphere-proxy/logs
     ports:
       - 3308:3308
     environment:

@@ -15,3 +15,4 @@ www/
 /zookeeperDocker/data/
 /kafkaDocker/data/
 /elkDocker/elasticsearch/data/
+/shardingSphere/logs

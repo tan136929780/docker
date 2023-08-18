@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <configuration>
+    <property name="log.path" value="/opt/datasphere-proxy/logs"/>
     <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
         <http class="com.github.loki4j.logback.ApacheHttpSender">
             <url>http://10.1.68.40:3100/loki/api/v1/push</url>
@@ -14,6 +15,48 @@
             <sortByTime>true</sortByTime>
         </format>
     </appender>
+
+    <appender name="DataSphere-FirewallSQLAuditor" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/DataSphere-FirewallSQLAuditor.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/DataSphere-FirewallSQLAuditor.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>10</maxHistory>
+            <maxFileSize>1GB</maxFileSize>
+            <totalSizeCap>10GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="DataSphere-Firewall-errorLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/DataSphere-Firewall-errorLog.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n
+            </pattern>
+        </encoder>
+        <!--滚动策略-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--路径-->
+            <fileNamePattern>${log.path}/DataSphere-Firewall-errorLog.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <maxFileSize>1GB</maxFileSize>
+            <totalSizeCap>30GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger{36} - %msg%n</pattern>
@@ -30,9 +73,10 @@
         <appender-ref ref="console" />
         <appender-ref ref="LOKI" />
     </logger>
-    <logger name="DataSphere-FirewallSQLAuditor" level="debug" additivity="false">
+    <logger name="DataSphere-FirewallSQLAuditor" level="debug" additivity="true">
         <appender-ref ref="console" />
         <appender-ref ref="LOKI" />
+        <appender-ref ref="DataSphere-FirewallSQLAuditor" />
     </logger>
     <logger name="DataSphere-SQLParserEngine" level="debug" additivity="false">
         <appender-ref ref="console" />
@@ -45,5 +89,6 @@
         <level value="info" />
         <appender-ref ref="console" />
         <appender-ref ref="LOKI" />
+        <appender-ref ref="DataSphere-Firewall-errorLog" />
     </root>
 </configuration>
