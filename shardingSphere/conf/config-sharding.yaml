@@ -251,4 +251,4 @@ rules:
         priorityLevel: 1
         action: DROP
         throwRiskCode: 0x0001
-        operation: SELECT
+        operation: INSERT

@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   dgraph:
-    image: visionvera/datasphere-proxy:1.0.2
+    image: visionvera/datasphere-proxy:1.0.1
     container_name: datasphere
     restart: always
     volumes:
