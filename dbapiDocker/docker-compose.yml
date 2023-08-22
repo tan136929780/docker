@@ -1,0 +1,18 @@
+version: "3.2"
+services:
+  dbapi:
+    image: freakchicken/db-api:4.0.0
+    container_name: dbapi
+#    restart: always
+#    logging:
+#      driver: none
+    volumes:
+      - ./conf:/opt/dbapi-4.0.0/conf
+      - ./logs:/opt/dbapi-4.0.0/logs
+      - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
+      - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
+    ports:
+      - 8520:8520
+    command: standalone
+    environment:
+      TZ: "Asia/Shanghai"

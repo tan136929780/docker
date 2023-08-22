@@ -118,7 +118,7 @@ databaseName: sharding_db
 #
 dataSources:
  ds_0:
-   url: jdbc:mysql://10.1.68.51:3306/ds_0?serverTimezone=UTC&useSSL=false
+   url: jdbc:mysql://10.1.68.51:3306/ds_0?characterEncoding=utf8&useSSL=false
 #   url: jdbc:mysql://127.0.0.1:3306/ds_0?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=PRC&useSSL=false
    username: root
    password: 123456
@@ -238,17 +238,17 @@ rules:
     dataRules:
       - databaseType: MYSQL
         databaseId: sharding_db
-        appId:
-        userId:
+        appId: 1
+        userId: 1
         rulePolicy: TABLES
         tableNames:
           - person
         scriptType: REGEXP
         sqlScript: test
-        maxRowSize: 5
+        maxRowSize: 1
         frequencyType: DAY
         frequencyValue: 1
         priorityLevel: 1
-        action: DROP
+        action: FORBID
         throwRiskCode: 0x0001
-        operation: INSERT
+        operation: SELECT

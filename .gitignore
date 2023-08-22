@@ -16,3 +16,4 @@ www/
 /kafkaDocker/data/
 /elkDocker/elasticsearch/data/
 /shardingSphere/logs
+/dbapiDocker/logs
