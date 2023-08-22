@@ -14,7 +14,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/data/db
-      - ./log:/data/log
+      - ./logs:/data/log
     command:
       - /bin/bash
       - -c

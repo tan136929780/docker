@@ -35,7 +35,7 @@ services:
     network_mode: "host"
     volumes:
       - ./conf/monitor:/usr/local/test/config
-      - ./log:/usr/local/test/log
+      - ./logs:/usr/local/test/log
 
   influxdb:
     image: influxdb:1.8.10

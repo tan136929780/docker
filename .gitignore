@@ -7,13 +7,10 @@ www/
 /tomcatDocker/data/
 /tomcatDocker/webapps/
 /prometheusDocker/data/
-/prometheusDocker/log/
-/mongoDbDocker/log/
 /mongoDbDocker/data/
 /influxDocker/data/
 /mysqlDocker/mysql/data/
 /zookeeperDocker/data/
 /kafkaDocker/data/
 /elkDocker/elasticsearch/data/
-/shardingSphere/logs
-/dbapiDocker/logs
+/*/logs
