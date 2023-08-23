@@ -2,15 +2,7 @@
 .DS_Store/
 www/
 /nacosDocker/docker-nacos/standalone-logs/
-/dgraphDocker/dgraph/data/
-/redisDocker/redis/data/
-/tomcatDocker/data/
 /tomcatDocker/webapps/
-/prometheusDocker/data/
-/mongoDbDocker/data/
-/influxDocker/data/
-/mysqlDocker/mysql/data/
-/zookeeperDocker/data/
-/kafkaDocker/data/
-/elkDocker/elasticsearch/data/
 /*/logs
+/*/data
+/*/*/data
