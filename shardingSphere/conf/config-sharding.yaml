@@ -212,22 +212,32 @@ rules:
       - person
   - !FIREWALL
     globalSqlRules:
-      - ruleId: 3
-        databaseType: MYSQL
+      - databaseType: MYSQL
         scriptType: REGEXP
-        sqlScript: test
+        sqlScript: (?i).*benchmark\(.*
         priorityLevel: 1
-        action: DROP
-        throwRiskCode: 0x0001
-      - ruleId: 4
-        databaseType: MYSQL
+        action: FORBID
+        throwRiskCode: 0x0003
+      - databaseType: MYSQL
         scriptType: REGEXP
-        sqlScript: test
+        sqlScript: (?i).*sleep\(.*
         priorityLevel: 1
-        action: DROP
-        throwRiskCode: 0x0001
+        action: FORBID
+        throwRiskCode: 0x0003
+      - databaseType: MYSQL
+        scriptType: REGEXP
+        sqlScript: (?i).*load file.*
+        priorityLevel: 1
+        action: FORBID
+        throwRiskCode: 0x0003
+      - databaseType: MYSQL
+        scriptType: REGEXP
+        sqlScript: (?i).*mysqldump.*
+        priorityLevel: 1
+        action: FORBID
+        throwRiskCode: 0x0003
     sqlRules:
-      - ruleId: 2
+      - ruleId: 3
         databaseType: MYSQL
         databaseId: sharding_db
         appId:
@@ -237,7 +247,7 @@ rules:
         priorityLevel: 1
 #        action: ALLOW
         action: FORBID
-        throwRiskCode: 0x0001
+        throwRiskCode: 0x0003
     dataRules:
       - ruleId: 1
         databaseType: MYSQL
@@ -247,9 +257,28 @@ rules:
         rulePolicy: TABLES
         tableNames:
           - person
+          - users
         scriptType: REGEXP
         sqlScript: test
-        maxRowSize: 1
+        maxRowSize: 10
+        frequencyType: DAY
+        frequencyValue: 1
+        priorityLevel: 1
+        action: FORBID
+        throwRiskCode: 0x0004
+        operation: SELECT
+      - ruleId: 2
+        databaseType: MYSQL
+        databaseId: sharding_db
+        appId:
+        userId:
+        rulePolicy: TABLES
+        tableNames:
+          - person
+          - users
+        scriptType: REGEXP
+        sqlScript: test
+        maxRowSize: 10
         frequencyType: DAY
         frequencyValue: 1
         priorityLevel: 1

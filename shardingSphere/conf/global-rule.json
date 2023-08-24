@@ -1,11 +1,38 @@
 [
   {
-    "ruleId": "3",
+    "ruleId": "4",
     "databaseType": "MYSQL",
     "scriptType": "REGEXP",
-    "sqlScript": "person",
+    "sqlScript": "(?i).*benchmark\\(.*",
     "priorityLevel": 1,
-    "action": "DROP",
-    "throwRiskCode": "0x0002"
+    "action": "FORBID",
+    "throwRiskCode": "0x0003"
+  },
+  {
+    "ruleId": "5",
+    "databaseType": "MYSQL",
+    "scriptType": "REGEXP",
+    "sqlScript": "(?i).*sleep\\(.*",
+    "priorityLevel": 1,
+    "action": "FORBID",
+    "throwRiskCode": "0x0003"
+  },
+  {
+    "ruleId": "6",
+    "databaseType": "MYSQL",
+    "scriptType": "REGEXP",
+    "sqlScript": "(?i).*load file.*",
+    "priorityLevel": 1,
+    "action": "FORBID",
+    "throwRiskCode": "0x0003"
+  },
+  {
+    "ruleId": "7",
+    "databaseType": "MYSQL",
+    "scriptType": "REGEXP",
+    "sqlScript": "(?i).*mysqldump.*",
+    "priorityLevel": 1,
+    "action": "FORBID",
+    "throwRiskCode": "0x0003"
   }
 ]
