@@ -212,34 +212,38 @@ rules:
       - person
   - !FIREWALL
     globalSqlRules:
-      - databaseType: MYSQL
+      - ruleId: 3
+        databaseType: MYSQL
         scriptType: REGEXP
         sqlScript: test
         priorityLevel: 1
         action: DROP
         throwRiskCode: 0x0001
-      - databaseType: MYSQL
+      - ruleId: 4
+        databaseType: MYSQL
         scriptType: REGEXP
         sqlScript: test
         priorityLevel: 1
         action: DROP
         throwRiskCode: 0x0001
     sqlRules:
-      - databaseType: MYSQL
-        databaseId: 1
-        appId: 1
-        userId: 1
+      - ruleId: 2
+        databaseType: MYSQL
+        databaseId: sharding_db
+        appId:
+        userId:
         scriptType: REGEXP
         sqlScript: INSERT INTO person.*
         priorityLevel: 1
-        action: ALLOW
-#        action: FORBID
+#        action: ALLOW
+        action: FORBID
         throwRiskCode: 0x0001
     dataRules:
-      - databaseType: MYSQL
+      - ruleId: 1
+        databaseType: MYSQL
         databaseId: sharding_db
-        appId: 1
-        userId: 1
+        appId:
+        userId:
         rulePolicy: TABLES
         tableNames:
           - person
@@ -250,5 +254,5 @@ rules:
         frequencyValue: 1
         priorityLevel: 1
         action: FORBID
-        throwRiskCode: 0x0001
-        operation: SELECT
+        throwRiskCode: 0x0005
+        operation: INSERT
