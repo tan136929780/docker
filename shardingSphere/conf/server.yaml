@@ -74,6 +74,7 @@ sqlParser:
 #
 
 props:
+ proxy-frontend-database-protocol-type: 'MySQL'
  system-log-level: INFO
 #  max-connections-size-per-query: 1
 #  kernel-executor-size: 16  # Infinite by default.

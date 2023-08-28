@@ -209,7 +209,7 @@ dataSources:
 rules:
   - !BROADCAST
     tables:
-      - person
+      - PERSON
   - !FIREWALL
     globalSqlRules:
       - databaseType: MYSQL
