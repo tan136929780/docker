@@ -1,4 +1,4 @@
 driverClassName: com.mysql.cj.jdbc.Driver
-jdbcUrl: jdbc:mysql://10.1.68.51:3306/gateway?characterEncoding=utf8&useSSL=false
+jdbcUrl: jdbc:mysql://127.0.0.1:3306/gateway?characterEncoding=utf8&useSSL=false
 username: root
 password: 123456
