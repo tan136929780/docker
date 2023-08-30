@@ -23,7 +23,7 @@ ingester:
 
 schema_config:
   configs:
-    - from: 2020-10-24
+    - from: 2023-08-01
       store: boltdb-shipper
       object_store: filesystem
       schema: v11
@@ -61,7 +61,7 @@ ruler:
     local:
       directory: /tmp/loki/rules
   rule_path: /tmp/loki/rules-temp
-  alertmanager_url: http://localhost:9093
+  alertmanager_url: http://127.0.0.1:9093
   ring:
     kvstore:
       store: inmemory

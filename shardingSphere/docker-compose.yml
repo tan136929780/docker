@@ -4,6 +4,8 @@ services:
     image: visionvera/datasphere-proxy:1.0.1
     container_name: datasphere
 #    restart: always
+#    logging:
+#      driver: none
     volumes:
       - ./conf:/opt/datasphere-proxy/conf
       - ./ext-lib:/opt/datasphere-proxy/ext-lib

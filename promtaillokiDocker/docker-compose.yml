@@ -1,34 +1,27 @@
-version: "3"
-
-networks:
-  loki:
+version: "3.3"
 
 services:
   loki:
     image: grafana/loki:2.2.1
-    network_mode: "host"
+    container_name: loki
     ports:
-      - "3100:3100"
+      - 3100:3100
     volumes:
       - ./conf/loki:/etc/loki
     command: -config.file=/etc/loki/loki-config.yaml
-    networks:
-      - loki
 
   promtail:
     image: grafana/promtail:2.2.1
-    network_mode: "host"
+    container_name: promtail
+    ports:
+      - 9080:9080
     volumes:
       - ./logs:/var/log
       - ./conf/promtail:/etc/promtail
     command: -config.file=/etc/promtail/promtail-config.yaml
-    networks:
-      - loki
 
   grafana:
     image: grafana/grafana:latest
-    network_mode: "host"
+    container_name: grafana
     ports:
-      - "3000:3000"
-    networks:
-      - loki
+      - 3000:3000
