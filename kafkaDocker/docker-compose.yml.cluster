@@ -1,0 +1,116 @@
+version: '3.3'
+
+services:
+
+  kafka1:
+    image: wurstmeister/kafka:2.13-2.7.0
+    #    restart: always
+    container_name: kafka1
+    logging:
+      driver: none
+    ports:
+      - "9092:9092"
+    environment:
+      TZ: "Asia/Shanghai"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_RETENTION_HOURS: 24
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9092
+      KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_BROKER_ID: 1
+    volumes:
+      - ./data/kafka1/logs:/kafka
+    networks:
+      default:
+        ipv4_address: 172.19.0.5
+    external_links:  # 连接本compose文件以外的container
+      - zookeeper1
+      - zookeeper2
+      - zookeeper3
+
+  kafka2:
+    image: wurstmeister/kafka:2.13-2.7.0
+    #    restart: always
+    container_name: kafka2
+    logging:
+      driver: none
+    ports:
+      - "9093:9092"
+    environment:
+      TZ: "Asia/Shanghai"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_RETENTION_HOURS: 24
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9093
+      KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
+      KAFKA_ADVERTISED_PORT: 9093
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_BROKER_ID: 2
+    volumes:
+      - ./data/kafka2/logs:/kafka
+    networks:
+      default:
+        ipv4_address: 172.19.0.6
+    external_links:  # 连接本compose文件以外的container
+      - zookeeper1
+      - zookeeper2
+      - zookeeper3
+
+  kafka3:
+    image: wurstmeister/kafka:2.13-2.7.0
+    #    restart: always
+    container_name: kafka3
+    logging:
+      driver: none
+    ports:
+      - "9094:9092"
+    environment:
+      TZ: "Asia/Shanghai"
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_LOG_RETENTION_HOURS: 24
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.112.39.103:9094
+      KAFKA_ADVERTISED_HOST_NAME: 10.112.39.103
+      KAFKA_ADVERTISED_PORT: 9094
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_BROKER_ID: 3
+    volumes:
+      - ./data/kafka3/logs:/kafka
+    networks:
+      default:
+        ipv4_address: 172.19.0.7
+    external_links:  # 连接本compose文件以外的container
+      - zookeeper1
+      - zookeeper2
+      - zookeeper3
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    #    restart: always
+    container_name: kafka-manager
+    logging:
+      driver: none
+    ports:
+      - "9002:9000"
+    environment:
+      TZ: "Asia/Shanghai"
+      ZK_HOSTS: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      KAFKA_BROKERS: kafka1:9092,kafka2:9093,kafka3:9094
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+    networks:
+      default:
+        ipv4_address: 172.19.0.8
+    links:
+      - kafka1
+      - kafka2
+      - kafka3
+    external_links:
+      - zookeeper1
+      - zookeeper2
+      - zookeeper3
+
+#network
+networks:
+  default:
+    external:   # 使用已创建的网络
+      name: zookeeper_default
