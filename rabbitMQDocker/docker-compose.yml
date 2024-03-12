@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  rabbitmq:
+    image: rabbitmq:3.13.0-management
+    container_name: "rabbitmq"
+    restart: always
+    logging:
+      driver: none
+    volumes:
+      - ./data:/var/lib/rabbitmq
+    ports:
+      - "5672:5672"  # AMQP
+      - "15672:15672" # RabbitMQ Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: "root"
+      RABBITMQ_DEFAULT_PASS: "123456"
