@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  dgraph:
+    image: visionvera/data-synchronous:0.0.1
+    container_name: data-synchronous
+    restart: always
+    logging:
+      driver: none
+    volumes:
+      - ./config:/usr/local/test/config
+      - ./logs:/usr/local/test/log
+      - /Users/tanxianchen/coding/docker/dgraphDocker/dgraph/data/cdcLog/:/usr/local/test/cdcLog
