@@ -1,12 +1,22 @@
 version: "3.2"
 services:
-  dgraph:
+  data-synchronous:
     image: visionvera/data-synchronous:0.0.1
     container_name: data-synchronous
     restart: always
     logging:
       driver: none
     volumes:
-      - ./config:/usr/local/test/config
+      - ./cacheConfig:/usr/local/test/config
       - ./logs:/usr/local/test/log
       - /Users/tanxianchen/coding/docker/dgraphDocker/dgraph/data/cdcLog/:/usr/local/test/cdcLog
+
+  grpc-proxy:
+    image: visionvera/grpc-proxy:0.0.1
+    container_name: grpc-proxy
+    restart: always
+    logging:
+      driver: none
+    volumes:
+      - ./cacheConfig:/usr/local/test/config
+      - ./logs:/usr/local/test/log
