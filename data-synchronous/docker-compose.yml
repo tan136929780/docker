@@ -7,7 +7,8 @@ services:
     logging:
       driver: none
     volumes:
-      - ./cacheConfig:/usr/local/test/config
+      - ./config:/usr/local/test/config
+      - ./cacheConfig:/usr/local/test/cacheConfig
       - ./logs:/usr/local/test/log
       - /Users/tanxianchen/coding/docker/dgraphDocker/dgraph/data/cdcLog/:/usr/local/test/cdcLog
 
@@ -18,5 +19,8 @@ services:
     logging:
       driver: none
     volumes:
-      - ./cacheConfig:/usr/local/test/config
+      - ./config:/usr/local/test/config
+      - ./cacheConfig:/usr/local/test/cacheConfig
       - ./logs:/usr/local/test/log
+    ports:
+      - 19080:19080
