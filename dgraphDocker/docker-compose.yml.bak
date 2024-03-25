@@ -4,7 +4,7 @@ services:
     image: dgraph/dgraph:latest
     container_name: docker-zero
     volumes:
-      - ./dgraph/data:/dgraph
+      - ./data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:
@@ -20,7 +20,7 @@ services:
     image: dgraph/dgraph:latest
     container_name: docker-alpha
     volumes:
-      - ./dgraph/data:/dgraph
+      - ./data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:
@@ -36,7 +36,7 @@ services:
     image: dgraph/ratel:latest
     container_name: docker-ratel
     volumes:
-      - ./dgraph/data:/dgraph
+      - ./data:/dgraph
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:

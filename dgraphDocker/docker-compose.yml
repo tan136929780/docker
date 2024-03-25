@@ -4,11 +4,11 @@ services:
     image: dgraph/standalone:v23.1.0
     container_name: dgraph
 #    restart: always
-#    logging:
-#      driver: none
+    logging:
+      driver: none
     volumes:
-      - ./dgraph/data:/dgraph
-      - ./dgraph/script:/script
+      - ./data:/dgraph
+      - ./script:/script
       - /etc/localtime:/etc/localtime:ro #将外边时间直接挂载到容器内部，权限只读
       - /etc/timezone:/etc/timezone:ro #将外面的时间挂载到容器内部，权限只读，容器内不可修改
     ports:
@@ -17,8 +17,8 @@ services:
       - 7080:7080
       - 8080:8080
       - 9080:9080
-#    command: /run.sh
-    command: /script/run.sh
+    command: /run.sh
+#    command: /script/run.sh
   ratel:
     image: dgraph/ratel:v21.12.0
     container_name: dgraph-ratel
