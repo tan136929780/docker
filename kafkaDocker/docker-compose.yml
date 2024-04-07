@@ -5,8 +5,8 @@ services:
     image: bitnami/zookeeper:latest
     container_name: zookeeper
     restart: always
-#    logging:
-#      driver: none
+    logging:
+      driver: none
     ports:
       - "2181:2181"
     environment:
@@ -15,24 +15,25 @@ services:
     image: bitnami/kafka:latest
     container_name: kafka
     restart: always
-#    logging:
-#      driver: none
+    logging:
+      driver: none
     ports:
       - "9092:9092"
     volumes:
-      - kafka_data:/bitnami/kafka
+#      - kafka_data:/bitnami/kafka
+      - ./data:/bitnami/kafka
     environment:
       - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
       - KAFKA_CFG_DEFAULT_REPLICATION_FACTOR=1
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.95.129:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://192.168.92.234:9092
 #      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://host.docker.internal:9092
     depends_on:
       - zookeeper
-volumes:
-  kafka_data:
-    driver: local
+#volumes:
+#  kafka_data:
+#    driver: local
 #  kafka-map:
 #    image:  dushixiang/kafka-map:latest
 #    restart: always
