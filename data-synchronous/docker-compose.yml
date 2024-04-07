@@ -12,4 +12,4 @@ services:
       - ./logs:/usr/local/test/log
       - /Users/tanxianchen/coding/docker/dgraphDocker/dgraph/data/cdcLog/:/usr/local/test/cdcLog
     ports:
-      - 19082:19082
+      - "19082:19082"

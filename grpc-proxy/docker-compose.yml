@@ -11,5 +11,5 @@ services:
       - ./cacheConfig:/usr/local/test/cacheConfig
       - ./logs:/usr/local/test/log
     ports:
-      - 19080:19080
-      - 19081:19081
+      - "19080:19080"
+      - "19081:19081"
