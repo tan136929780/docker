@@ -2,7 +2,8 @@ version: "3.3"
 services:
   #nginx
   nginx:
-    image: nginx:1.19.9
+    #    image: nginx:1.19.9
+    image: nginx:1.27.4-alpine
     container_name: nginx
     logging:
       driver: none
